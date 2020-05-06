@@ -1,0 +1,653 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>SLIME MOLDS AS ART CRITICS</title><style>
+/* webkit printing magic: print all background colors */
+html {
+	-webkit-print-color-adjust: exact;
+}
+* {
+	box-sizing: border-box;
+	-webkit-print-color-adjust: exact;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+@media only screen {
+	body {
+		margin: 2em auto;
+		max-width: 900px;
+		color: rgb(55, 53, 47);
+	}
+}
+
+body {
+	line-height: 1.5;
+	white-space: pre-wrap;
+}
+
+a,
+a.visited {
+	color: inherit;
+	text-decoration: underline;
+}
+
+.pdf-relative-link-path {
+	font-size: 80%;
+	color: #444;
+}
+
+h1,
+h2,
+h3 {
+	letter-spacing: -0.01em;
+	line-height: 1.2;
+	font-weight: 600;
+	margin-bottom: 0;
+}
+
+.page-title {
+	font-size: 2.5rem;
+	font-weight: 700;
+	margin-top: 0;
+	margin-bottom: 0.75em;
+}
+
+h1 {
+	font-size: 1.875rem;
+	margin-top: 1.875rem;
+}
+
+h2 {
+	font-size: 1.5rem;
+	margin-top: 1.5rem;
+}
+
+h3 {
+	font-size: 1.25rem;
+	margin-top: 1.25rem;
+}
+
+.source {
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	padding: 1.5em;
+	word-break: break-all;
+}
+
+.callout {
+	border-radius: 3px;
+	padding: 1rem;
+}
+
+figure {
+	margin: 1.25em 0;
+	page-break-inside: avoid;
+}
+
+figcaption {
+	opacity: 0.5;
+	font-size: 85%;
+	margin-top: 0.5em;
+}
+
+mark {
+	background-color: transparent;
+}
+
+.indented {
+	padding-left: 1.5em;
+}
+
+hr {
+	background: transparent;
+	display: block;
+	width: 100%;
+	height: 1px;
+	visibility: visible;
+	border: none;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+img {
+	max-width: 100%;
+}
+
+@media only print {
+	img {
+		max-height: 100vh;
+		object-fit: contain;
+	}
+}
+
+@page {
+	margin: 1in;
+}
+
+.collection-content {
+	font-size: 0.875rem;
+}
+
+.column-list {
+	display: flex;
+	justify-content: space-between;
+}
+
+.column {
+	padding: 0 1em;
+}
+
+.column:first-child {
+	padding-left: 0;
+}
+
+.column:last-child {
+	padding-right: 0;
+}
+
+.table_of_contents-item {
+	display: block;
+	font-size: 0.875rem;
+	line-height: 1.3;
+	padding: 0.125rem;
+}
+
+.table_of_contents-indent-1 {
+	margin-left: 1.5rem;
+}
+
+.table_of_contents-indent-2 {
+	margin-left: 3rem;
+}
+
+.table_of_contents-indent-3 {
+	margin-left: 4.5rem;
+}
+
+.table_of_contents-link {
+	text-decoration: none;
+	opacity: 0.7;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+}
+
+table,
+th,
+td {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+	border-collapse: collapse;
+}
+
+table {
+	border-left: none;
+	border-right: none;
+}
+
+th,
+td {
+	font-weight: normal;
+	padding: 0.25em 0.5em;
+	line-height: 1.5;
+	min-height: 1.5em;
+	text-align: left;
+}
+
+th {
+	color: rgba(55, 53, 47, 0.6);
+}
+
+ol,
+ul {
+	margin: 0;
+	margin-block-start: 0.6em;
+	margin-block-end: 0.6em;
+}
+
+li > ol:first-child,
+li > ul:first-child {
+	margin-block-start: 0.6em;
+}
+
+ul > li {
+	list-style: disc;
+}
+
+ul.to-do-list {
+	text-indent: -1.7em;
+}
+
+ul.to-do-list > li {
+	list-style: none;
+}
+
+.to-do-children-checked {
+	text-decoration: line-through;
+	opacity: 0.375;
+}
+
+ul.toggle > li {
+	list-style: none;
+}
+
+ul {
+	padding-inline-start: 1.7em;
+}
+
+ul > li {
+	padding-left: 0.1em;
+}
+
+ol {
+	padding-inline-start: 1.6em;
+}
+
+ol > li {
+	padding-left: 0.2em;
+}
+
+.mono ol {
+	padding-inline-start: 2em;
+}
+
+.mono ol > li {
+	text-indent: -0.4em;
+}
+
+.toggle {
+	padding-inline-start: 0em;
+	list-style-type: none;
+}
+
+/* Indent toggle children */
+.toggle > li > details {
+	padding-left: 1.7em;
+}
+
+.toggle > li > details > summary {
+	margin-left: -1.1em;
+}
+
+.selected-value {
+	display: inline-block;
+	padding: 0 0.5em;
+	background: rgba(206, 205, 202, 0.5);
+	border-radius: 3px;
+	margin-right: 0.5em;
+	margin-top: 0.3em;
+	margin-bottom: 0.3em;
+	white-space: nowrap;
+}
+
+.collection-title {
+	display: inline-block;
+	margin-right: 1em;
+}
+
+time {
+	opacity: 0.5;
+}
+
+.icon {
+	display: inline-block;
+	max-width: 1.2em;
+	max-height: 1.2em;
+	text-decoration: none;
+	vertical-align: text-bottom;
+	margin-right: 0.5em;
+}
+
+img.icon {
+	border-radius: 3px;
+}
+
+.user-icon {
+	width: 1.5em;
+	height: 1.5em;
+	border-radius: 100%;
+	margin-right: 0.5rem;
+}
+
+.user-icon-inner {
+	font-size: 0.8em;
+}
+
+.text-icon {
+	border: 1px solid #000;
+	text-align: center;
+}
+
+.page-cover-image {
+	display: block;
+	object-fit: cover;
+	width: 100%;
+	height: 30vh;
+}
+
+.page-header-icon {
+	font-size: 3rem;
+	margin-bottom: 1rem;
+}
+
+.page-header-icon-with-cover {
+	margin-top: -0.72em;
+	margin-left: 0.07em;
+}
+
+.page-header-icon img {
+	border-radius: 3px;
+}
+
+.link-to-page {
+	margin: 1em 0;
+	padding: 0;
+	border: none;
+	font-weight: 500;
+}
+
+p > .user {
+	opacity: 0.5;
+}
+
+td > .user,
+td > time {
+	white-space: nowrap;
+}
+
+input[type="checkbox"] {
+	transform: scale(1.5);
+	margin-right: 0.6em;
+	vertical-align: middle;
+}
+
+p {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+.image {
+	border: none;
+	margin: 1.5em 0;
+	padding: 0;
+	border-radius: 0;
+	text-align: center;
+}
+
+.code,
+code {
+	background: rgba(135, 131, 120, 0.15);
+	border-radius: 3px;
+	padding: 0.2em 0.4em;
+	border-radius: 3px;
+	font-size: 85%;
+	tab-size: 2;
+}
+
+code {
+	color: #eb5757;
+}
+
+.code {
+	padding: 1.5em 1em;
+}
+
+.code > code {
+	background: none;
+	padding: 0;
+	font-size: 100%;
+	color: inherit;
+}
+
+blockquote {
+	font-size: 1.25em;
+	margin: 1em 0;
+	padding-left: 1em;
+	border-left: 3px solid rgb(55, 53, 47);
+}
+
+.bookmark {
+	text-decoration: none;
+	max-height: 8em;
+	padding: 0;
+	display: flex;
+	width: 100%;
+	align-items: stretch;
+}
+
+.bookmark-title {
+	font-size: 0.85em;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	height: 1.75em;
+	white-space: nowrap;
+}
+
+.bookmark-text {
+	display: flex;
+	flex-direction: column;
+}
+
+.bookmark-info {
+	flex: 4 1 180px;
+	padding: 12px 14px 14px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.bookmark-image {
+	width: 33%;
+	flex: 1 1 180px;
+	display: block;
+	position: relative;
+	object-fit: cover;
+	border-radius: 1px;
+}
+
+.bookmark-description {
+	color: rgba(55, 53, 47, 0.6);
+	font-size: 0.75em;
+	overflow: hidden;
+	max-height: 4.5em;
+	word-break: break-word;
+}
+
+.bookmark-href {
+	font-size: 0.75em;
+	margin-top: 0.25em;
+}
+
+.sans { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+.code { font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace; }
+.serif { font-family: Lyon-Text, Georgia, YuMincho, "Yu Mincho", "Hiragino Mincho ProN", "Hiragino Mincho Pro", "Songti TC", "Songti SC", "SimSun", "Nanum Myeongjo", NanumMyeongjo, Batang, serif; }
+.mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
+.pdf .sans { font-family: Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC', 'Noto Sans CJK KR'; }
+
+.pdf .code { font-family: Source Code Pro, "SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC', 'Noto Sans Mono CJK KR'; }
+
+.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, YuMincho, "Yu Mincho", "Hiragino Mincho ProN", "Hiragino Mincho Pro", "Songti TC", "Songti SC", "SimSun", "Nanum Myeongjo", NanumMyeongjo, Batang, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC', 'Noto Sans CJK KR'; }
+
+.pdf .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC', 'Noto Sans Mono CJK KR'; }
+
+.highlight-default {
+}
+.highlight-gray {
+	color: rgb(155,154,151);
+}
+.highlight-brown {
+	color: rgb(100,71,58);
+}
+.highlight-orange {
+	color: rgb(217,115,13);
+}
+.highlight-yellow {
+	color: rgb(223,171,1);
+}
+.highlight-teal {
+	color: rgb(15,123,108);
+}
+.highlight-blue {
+	color: rgb(11,110,153);
+}
+.highlight-purple {
+	color: rgb(105,64,165);
+}
+.highlight-pink {
+	color: rgb(173,26,114);
+}
+.highlight-red {
+	color: rgb(224,62,62);
+}
+.highlight-gray_background {
+	background: rgb(235,236,237);
+}
+.highlight-brown_background {
+	background: rgb(233,229,227);
+}
+.highlight-orange_background {
+	background: rgb(250,235,221);
+}
+.highlight-yellow_background {
+	background: rgb(251,243,219);
+}
+.highlight-teal_background {
+	background: rgb(221,237,234);
+}
+.highlight-blue_background {
+	background: rgb(221,235,241);
+}
+.highlight-purple_background {
+	background: rgb(234,228,242);
+}
+.highlight-pink_background {
+	background: rgb(244,223,235);
+}
+.highlight-red_background {
+	background: rgb(251,228,228);
+}
+.block-color-default {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray {
+	color: rgba(55, 53, 47, 0.6);
+	fill: rgba(55, 53, 47, 0.6);
+}
+.block-color-brown {
+	color: rgb(100,71,58);
+	fill: rgb(100,71,58);
+}
+.block-color-orange {
+	color: rgb(217,115,13);
+	fill: rgb(217,115,13);
+}
+.block-color-yellow {
+	color: rgb(223,171,1);
+	fill: rgb(223,171,1);
+}
+.block-color-teal {
+	color: rgb(15,123,108);
+	fill: rgb(15,123,108);
+}
+.block-color-blue {
+	color: rgb(11,110,153);
+	fill: rgb(11,110,153);
+}
+.block-color-purple {
+	color: rgb(105,64,165);
+	fill: rgb(105,64,165);
+}
+.block-color-pink {
+	color: rgb(173,26,114);
+	fill: rgb(173,26,114);
+}
+.block-color-red {
+	color: rgb(224,62,62);
+	fill: rgb(224,62,62);
+}
+.block-color-gray_background {
+	background: rgb(235,236,237);
+}
+.block-color-brown_background {
+	background: rgb(233,229,227);
+}
+.block-color-orange_background {
+	background: rgb(250,235,221);
+}
+.block-color-yellow_background {
+	background: rgb(251,243,219);
+}
+.block-color-teal_background {
+	background: rgb(221,237,234);
+}
+.block-color-blue_background {
+	background: rgb(221,235,241);
+}
+.block-color-purple_background {
+	background: rgb(234,228,242);
+}
+.block-color-pink_background {
+	background: rgb(244,223,235);
+}
+.block-color-red_background {
+	background: rgb(251,228,228);
+}
+.select-value-color-default { background-color: rgba(206,205,202,0.5); }
+.select-value-color-gray { background-color: rgba(155,154,151, 0.4); }
+.select-value-color-brown { background-color: rgba(140,46,0,0.2); }
+.select-value-color-orange { background-color: rgba(245,93,0,0.2); }
+.select-value-color-yellow { background-color: rgba(233,168,0,0.2); }
+.select-value-color-green { background-color: rgba(0,135,107,0.2); }
+.select-value-color-blue { background-color: rgba(0,120,223,0.2); }
+.select-value-color-purple { background-color: rgba(103,36,222,0.2); }
+.select-value-color-pink { background-color: rgba(221,0,129,0.2); }
+.select-value-color-red { background-color: rgba(255,0,26,0.2); }
+
+.checkbox {
+	display: inline-flex;
+	vertical-align: text-bottom;
+	width: 16;
+	height: 16;
+	background-size: 16px;
+	margin-left: 2px;
+	margin-right: 5px;
+}
+
+.checkbox-on {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+.checkbox-off {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+	
+</style></head><body><article id="28ed16ef-82a5-4227-bc2e-e3a02c33a744" class="page sans"><header><img class="page-cover-image" src="https://4.bp.blogspot.com/-wIJRXM0A22o/VyBHZqzLrcI/AAAAAAAADEI/08yvsORvYGA7SXPb9X83QxayWsYDbSemQCLcB/s1600/black-hole.jpg" style="object-position:center 52.68999999999999%"/><h1 class="page-title">SLIME MOLDS AS ART CRITICS</h1></header><div class="page-body"><p id="c5ab3446-b6e3-4d36-b939-98b4a3ebd46a" class="">
+</p><p id="2fce3807-f9e2-4895-a82a-e80296646d2d" class=""><mark class="highlight-pink_background">My goal was quite simple: I wanted to communicate with the Slime Mold by using art.</mark></p><p id="780e1427-c172-4c11-a185-404cb44a2485" class="">
+</p><p id="b6c7844a-62d0-4457-bee1-8aae367ae663" class="">I don’t know the language of Slime Molds and Slime Molds don’t know the language of humans. But humans as well as Slime Molds react strongly to light. Most people retreat when it gets dark and they try to avoid dark corners. Unlike humans, Slime Molds are nocturnal and they try to avoid light.
+As an artist I communicate through art, mostly by using film and video. Therefore, I am very dependent on light. Without light, no film. Light is an actor that has become a matter of course but without it film would not be possible. So in an indirect way I use film and light to communicate. A way of communication that could also work with Slime Molds.</p><p id="340b1824-09c6-4911-9c42-e13ecdcc4d06" class="">Art is something you do for yourself but also for others. The artists as well as the audience are mostly people. Apart from some very rare paintings, you can’t find art that is made by animals. However, you can find art in nature. But not art in the sense in which most people understand art. There are human artists who use nature in order to make art. There is also art about animals, plants and Slime Molds. However, there is probably not a lot of art that is made for animals, trees or Slime Molds. The first work of art I wanted to show the Slime Mold was not made especially for it, either. At a later date I could have imagined that. It never got that far. The first and unfortunately also last work I showed to the Slime Mold is called &quot;Black Hole”. On my homepage, the following is written about it:</p><p id="7ecc8cbd-119a-462e-9e76-00222d4693f8" class="">
+</p><div id="b1c5663b-afc5-4448-a7ff-56d3e2173bb8" class="column-list"><div id="f74e587f-513c-487f-85fc-af2b615d2d07" style="width:93.75%" class="column"><p id="b7e84301-acd2-48e8-90f9-dd85f0947dc8" class="block-color-purple_background">SCHWARZES LOCH / BLACK HOLE
+Video | 5:51 min | 2017
+Sound and image document the inner life of a vacuum cleaner. The close-up as well as the penetrating sound suck the viewer into a hurricane of dust. </p></div><div id="722a486b-4ee8-4a16-971f-1801abc31351" style="width:6.25%" class="column"><p id="22f4d9f2-f32d-4835-ae12-a1e3fdc97a5b" class=""><div class="indented"><p id="721a7b0a-8d19-47c7-aa19-6c938794d9eb" class="">
+</p></div></p></div></div><p id="f156decc-76f6-4949-b911-af68ee79c33e" class="">
+</p><p id="7dc8bd61-d26c-4782-ba37-0d7ef8fe460f" class="">
+</p><figure id="20d8bfd3-f954-4a76-8b97-ea6f342a8c59"><div class="source"><a href="https://www.youtube.com/watch?v=mCw5-NytyXQ&amp;list=UUFkL_TQRhrTg67hhWdtXSyg&amp;index=30">https://www.youtube.com/watch?v=mCw5-NytyXQ&amp;list=UUFkL_TQRhrTg67hhWdtXSyg&amp;index=30</a></div><figcaption>BLACK HOLE - ORIGINAL VIDEO </figcaption></figure><p id="883afc03-a234-4acf-8dce-0c531cc20d14" class="">
+</p><p id="bdaaf2d3-c7e3-4311-a416-363ea9b79a48" class="">
+</p><p id="cda3f04b-1cab-4206-be9f-7e11d4ec1946" class="">
+</p><figure id="a8629d59-1d81-4b4a-bc6f-62810aec961b"><div class="source"><a href="https://www.youtube.com/watch?v=oaCWSu-iR9o&amp;list=UUFkL_TQRhrTg67hhWdtXSyg&amp;index=5">https://www.youtube.com/watch?v=oaCWSu-iR9o&amp;list=UUFkL_TQRhrTg67hhWdtXSyg&amp;index=5</a></div><figcaption>BLACK HOLE - SLIME MOLD VERSION </figcaption></figure><p id="5e96ef8d-c16f-49ba-a574-e764fc3af40b" class="">
+</p><p id="3d6c680b-f018-4285-9256-d3911efbb50b" class="">
+</p><p id="48c0062b-1190-4f15-b415-691c34c091b3" class="">
+</p><figure id="c67b09e0-6eec-45ea-9b1b-a4efb831ac96"><div class="source"><a href="https://www.youtube.com/watch?v=0bTN2___Dkw&amp;list=UUFkL_TQRhrTg67hhWdtXSyg">https://www.youtube.com/watch?v=0bTN2___Dkw&amp;list=UUFkL_TQRhrTg67hhWdtXSyg</a></div><figcaption>PETRI DISH ON VIDEO </figcaption></figure><p id="2ce5eb70-b068-4462-a23f-f0adf12ffd7b" class="">
+</p><p id="b7a08229-8103-4ba8-a91a-72f5b49c2405" class="">
+</p><p id="fe0b8bcf-bfd7-42f4-b36c-abc8f56f2fac" class=""><mark class="highlight-red_background">In order to show the video correctly to the Slime Mold, and also to make the documentation to look good, I adapted my work for the Slime Mold:</mark></p><p id="748259b1-1739-4ebf-a682-d575619a002b" class="">Since the Slime Mold lives and moves in a petri dish, I decided to cut my video out in a circle. So I could put the round petri dish on the round video. Around the video and around the petri dish, it should only be white. But since I miscalculated, in the end the video was bigger than the petri dish. The outer few millimetres of my work were only visible from a distance, if at all. I don’t know if this had any effect on the Slime Mold.
+Slime Molds react quite slowly. Therefore I played the video slower. &quot;Black Hole (Slime Mold Version)&quot; is now 5 hours long instead of 5 minutes. I also turned off the sound of my work as I didn’t want to irritate the Slime Mold&#x27;s senses. The Slime Mold should only focus on the visual aspect of my work.
+The video is dark in the middle and brighter all around. The Slime Mold was supposed to sit in the middle of the petri dish but must have slipped to the lower left during setup. The oatmeal was supposed to be placed regularly along the edge of the Petri dish to motivate the Slime Mold to approach the edges, even though it’s brighter. The oatmeals ended up randomly.
+For more than 5 hours the camera took one picture per minute. Unfortunately the camera was not in focus. All 300 pictures resulted in a 25 minutes long video. I sped it up by 1000% and got a video with a length of 2,5 minutes.</p><p id="1211c0d0-39c8-4c94-9d0f-2d09f3695ac5" class="">Because of the light, I expected that the Slime Mold would prefer to be in the center of the work and stay there. In the video, from time to time light particles fly through the dark part. Here I thought that the Slime Mold would avoid the light particels and it would move away. But since its food is at the edges, I imagined that it quickly scoops up all the food and then retreats back to the center. Maybe, it would often repeat this process to avoid being in the dark for a long time.</p><p id="3932d708-6646-461d-84e1-e88eba685576" class="">
+</p><p id="745bea9d-496f-40df-926a-3e874b6321ff" class="">
+</p><p id="5a037ae7-a57b-4555-a030-f2410230a3a4" class="">BEFORE </p><figure id="a211a417-2593-407b-8cf7-7532d17553dd" class="image"><a href="SLIME%20MOLDS%20AS%20ART%20CRITICS/Scan_2.jpeg"><img style="width:466px" src="SLIME%20MOLDS%20AS%20ART%20CRITICS/Scan_2.jpeg"/></a></figure><p id="f11c95dc-1cb1-4bca-bcd9-ed63096a707d" class="">
+</p><p id="e475067f-df9b-4781-9654-1698a5d9c477" class="">
+</p><p id="4896804b-ef1f-468c-bb0e-b22f90c5a2db" class="">
+</p><p id="27ff7856-7ab8-4b79-99e4-1ac002273d8d" class="">AFTER</p><figure id="ce60f92d-a07f-40a2-adc4-e63ffd5a29b8" class="image"><a href="SLIME%20MOLDS%20AS%20ART%20CRITICS/Scan_1.jpeg"><img style="width:466px" src="SLIME%20MOLDS%20AS%20ART%20CRITICS/Scan_1.jpeg"/></a></figure><p id="7548ac80-c081-44c9-b940-2362915943b3" class="">
+</p><p id="86749def-bac4-4c5b-8b98-d0c7b1d76c66" class="">
+</p><p id="79b952f5-e7dc-4ddf-86bf-e66427680dd3" class="">
+</p><p id="ce3f656e-5edd-4cf0-aadd-c9d443a14ac6" class="block-color-red_background"><strong>FINAL FREE INTERPRETATION </strong></p><p id="5e75510f-8a80-4aee-93b3-20019949a39e" class="">
+On my bad documentation you can see, however not very clearly, some movements of the Slime Mold. It starts at the bottom left and creates a small circular shape, mainly on the dark part of the video. (I am not quite sure about the shape and about the location. Maybe it&#x27;s the just the only part I can see. It could also be that the Slime Mold has moved in the light or has gone even further into the dark. Since I can&#x27;t find that out now, I would like to assume that it was as I just described it.) From this behavior you can conclude that it especially likes the lower left of the video or the rest of the video even less. Furthermore, it moves in one place, but there quite a lot. The flying particles are most likely disturbing, so probably it doesn&#x27;t dare to explore other parts of the video further. But moving around on the same spot also points to other things: The Slime Mold imitates the form of the work but also the particles that keep flying around and multiplying. The Slime Mold also developed a routine. This means it understands the everyday routine shown in the video in the form of vacuuming. This always-moving-in-the-same-spot could also be a behavioral disorder that shows itself in repetitive senseless movements. This is called stereotype, which often occurs in the context of captivity. Therefore, either the petri dish is a prison or my work is a pain in the ass. Like the dust in the vacuum cleaner, housework and depression, the Slime Mold gets little attention in society. The Slime Mold finds &quot;Black Hole&quot; very irritating, but identifies strongly with it. Towards the end of the video, it even seems that the Slime Mold was sucked up by the art work as it seems to have disappeared.</p><p id="80034462-9f7f-4ad2-a616-8b71fddb1b1f" class="">
+</p><p id="ccdf98cb-e362-4fa6-abd1-a3201caf784b" class=""><mark class="highlight-orange_background">EXTRA: SLIME MOLDS AND THE UNIVERSE </mark></p><figure id="217a9332-f4c2-4302-b98e-db4fce36f12a"><a href="https://www.spacetelescope.org/news/heic2003/" class="bookmark source"><div class="bookmark-info"><div class="bookmark-text"><div class="bookmark-title">Astronomers Use Slime Mould to Map the Universe&#x27;s Largest Structures</div><div class="bookmark-description">The behaviour of one of nature&#x27;s humblest creatures and archival data from the NASA/ESA Hubble Space Telescope are helping astronomers probe the largest structures in the Universe. The single-cell organism known as slime mould (Physarum polycephalum) builds complex web-like filamentary networks in search of food, always finding near-optimal pathways to connect different locations.</div></div><div class="bookmark-href"><img src="https://www.spacetelescope.org/static/favicon.ico" class="icon bookmark-icon"/>https://www.spacetelescope.org/news/heic2003/</div></div><img src="http://cdn.spacetelescope.org/archives/images/screen/heic2003a.jpg" class="bookmark-image"/></a></figure><p id="02718dc3-ab31-4862-a7e6-1b0ae1a3a614" class="">
+</p></div></article></body></html>
